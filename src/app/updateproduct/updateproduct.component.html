@@ -1,1 +1,22 @@
-<p>updateproduct works!</p>
+<h1>Update Product</h1><br><br>
+<form>
+    <label for="pid">Product ID:</label>
+    <input type="number" id="pid" [ngModel]="pid" name="pid" required><br><br>
+
+    <label for="weight">Weight:</label>
+    <input type="number" id="weight" [ngModel]="weight" name="weight" required><br><br>
+
+    <label for="p_cost">Product Cost:</label>
+    <input type="number" id="p_cost" [ngModel]="p_cost" name="p_cost" required><br><br>
+
+    <label for="p_desc">Product Description:</label>
+    <textarea id="p_desc" name="p_desc" [ngModel]="p_desc" required></textarea><br><br>
+
+    <label for="p_stock">Product Stock:</label>
+    <input type="number" id="p_stock" name="p_stock" [ngModel]="p_stock" required><br><br>
+
+    <label for="oid">Order ID:</label>
+    <input type="number" id="oid" name="oid" [ngModel]="oid" required><br><br>
+
+    <input type="submit" value="Submit">
+</form>
