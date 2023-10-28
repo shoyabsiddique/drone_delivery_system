@@ -3,7 +3,8 @@
   type="text"
   id="search"
   placeholder="Search by Product ID"
-  onkeyup="searchProduct()"
+  [(ngModel)]="searchQuery"
+  (keyup)="searchData()"
 />
 <table>
   <tr>
@@ -11,8 +12,21 @@
     <th>Weight</th>
     <th>Product Cost</th>
     <th>Product Description</th>
-    <th>Product Stock</th>
+    <th>Product Stock (SKU)</th>
     <th>Order ID</th>
+    <th>Update</th>
   </tr>
-  <!-- Insert product data dynamically here -->
+  <tr *ngFor="let rows of data">
+    <td>{{ rows["pid"] }}</td>
+    <td>{{ rows["weight"] }} &nbsp; kg</td>
+    <td>$ &nbsp;{{ rows["p_cost"] }}</td>
+    <td>{{ rows["p_desc"] }}</td>
+    <td>{{ rows["p_stock"] }}</td>
+    <td>{{ rows["oid"] }}</td>
+    <td>
+      <button type="button" [routerLink]="['/update', rows['pid']]">
+        Update
+      </button>
+    </td>
+  </tr>
 </table>

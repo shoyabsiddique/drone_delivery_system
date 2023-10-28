@@ -8,6 +8,8 @@ import { UpdateproductComponent } from './updateproduct/updateproduct.component'
 import { ViewproductComponent } from './viewproduct/viewproduct.component';
 import { DeleteproductComponent } from './deleteproduct/deleteproduct.component';
 import { FormsModule } from '@angular/forms';
+import { FetchDataService } from './fetch-data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [FetchDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
