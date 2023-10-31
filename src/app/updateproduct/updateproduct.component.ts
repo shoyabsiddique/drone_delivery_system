@@ -56,8 +56,8 @@ export class UpdateproductComponent {
   updateData() {
     console.log(this.p_desc);
 
-    this.http
-      .post('http://localhost:3000/update', {
+    this.fetchData
+      .update({
         pid: this.pid,
         weight: this.weight,
         p_cost: this.p_cost,
@@ -66,8 +66,8 @@ export class UpdateproductComponent {
         oid: this.oid,
       })
       .subscribe(
-        (response) => {
-          console.log(response.valueOf());
+        (res) => {
+          // console.log(response.valueOf());
           this.fetchData.search(this.pid.toString()).subscribe(
             (response) => {
               this.format = response;
@@ -78,12 +78,18 @@ export class UpdateproductComponent {
               this.p_desc = this.format[0].p_desc;
               this.p_stock = this.format[0].p_stock;
               this.oid = this.format[0].oid;
+              this.fetchData.dataUpdated.emit();
             },
             (error) => {
               console.log(error);
             }
           );
-          var res = response;
+          // var res = response.valueOf();
+          console.log(res);
+
+          if (res == 'Update successful') {
+            alert('Data Updated');
+          }
         },
         (error) => {
           console.log(error);

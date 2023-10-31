@@ -1,4 +1,7 @@
-<h1>Product Data</h1>
+<div class="header">
+  <h1>Product Data</h1>
+  <div class="add" [routerLink]="['/add']">👉Add Products👈</div>
+</div>
 <input
   type="text"
   id="search"
@@ -15,18 +18,22 @@
     <th>Product Stock (SKU)</th>
     <th>Order ID</th>
     <th>Update</th>
+    <th>Delete</th>
   </tr>
   <tr *ngFor="let rows of data">
     <td>{{ rows["pid"] }}</td>
-    <td>{{ rows["weight"] }} &nbsp; kg</td>
-    <td>$ &nbsp;{{ rows["p_cost"] }}</td>
+    <td>{{ rows["weight"] }}&nbsp; kg</td>
+    <td>Rs&nbsp;{{ rows["p_cost"] }}</td>
     <td>{{ rows["p_desc"] }}</td>
-    <td>{{ rows["p_stock"] }}</td>
+    <td>{{ rows["p_stock"] }} units</td>
     <td>{{ rows["oid"] }}</td>
     <td>
       <button type="button" [routerLink]="['/update', rows['pid']]">
         Update
       </button>
+    </td>
+    <td>
+      <button type="button" (click)="deleteRow(rows['pid'])">Delete</button>
     </td>
   </tr>
 </table>
