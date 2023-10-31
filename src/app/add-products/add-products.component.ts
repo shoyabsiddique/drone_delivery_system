@@ -50,25 +50,11 @@ export class AddProductsComponent {
       .subscribe(
         (response) => {
           console.log(response.valueOf());
+          if (response.hasOwnProperty('status')) {
+            alert('Data added successfully 🥳🥳');
+          }
           console.log('Data added');
           this.fetchData.dataAdded.emit();
-
-          // this.fetchData.search(this.pid.toString()).subscribe(
-          //   (response) => {
-          //     this.format = response;
-          //     console.log(response);
-          //     this.pid = this.format[0].pid;
-          //     this.weight = this.format[0].weight;
-          //     this.p_cost = this.format[0].p_cost;
-          //     this.p_desc = this.format[0].p_desc;
-          //     this.p_stock = this.format[0].p_stock;
-          //     this.oid = this.format[0].oid;
-          //   },
-          //   (error) => {
-          //     console.log(error);
-          //   }
-          // );
-          // var res = response;
         },
         (error) => {
           console.log(error);

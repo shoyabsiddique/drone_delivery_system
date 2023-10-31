@@ -79,6 +79,11 @@ export class UpdateproductComponent {
               this.p_stock = this.format[0].p_stock;
               this.oid = this.format[0].oid;
               this.fetchData.dataUpdated.emit();
+              console.log(response.hasOwnProperty('status'));
+
+              if (response.hasOwnProperty('status')) {
+                alert('Data updated successfully 🥳🥳');
+              }
             },
             (error) => {
               console.log(error);
